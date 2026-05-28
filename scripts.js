@@ -7,45 +7,51 @@ const successScreen = document.getElementById("successScreen");
 const charImg = document.getElementById("charImg");
 
 const noMessages = [
-  "Pookie please... 🥺",
+  "Pookie please 🥺",
   "Are you sure? 💔",
-  "I will be sad 😢",
-  "Don't do this 😭",
-  "Last chance... 💀"
+  "Think again 😭",
+  "Don't break my heart 😢",
+  "Last chance 💀",
+  "You know you want to 😏"
 ];
 
 let noClickCount = 0;
+let yesScale = 1;
 
-/* No button runs away */
-
-noBtn.addEventListener("mouseover", () => {
-
-  const x = Math.random() * (window.innerWidth - 150);
-
-  const y = Math.random() * (window.innerHeight - 100);
-
-  noBtn.style.position = "absolute";
-  noBtn.style.left = `${x}px`;
-  noBtn.style.top = `${y}px`;
-});
-
-/* No button click */
+/* NO BUTTON */
 
 noBtn.addEventListener("click", () => {
 
   noClickCount++;
 
+  /* change text */
   if(noClickCount < noMessages.length){
     noBtn.textContent = noMessages[noClickCount];
   }
-  else{
-    noBtn.textContent = "Okay... 😭";
-  }
 
+  /* make YES button bigger */
+  yesScale += 0.25;
+
+  yesBtn.style.transform = `scale(${yesScale})`;
+
+  /* shrink NO button */
+  const currentScale = 1 - (noClickCount * 0.08);
+
+  noBtn.style.transform = `scale(${Math.max(currentScale,0.5)})`;
+
+  /* move NO button randomly */
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 120 - 60;
+
+  noBtn.style.position = "relative";
+  noBtn.style.left = `${x}px`;
+  noBtn.style.top = `${y}px`;
+
+  /* sad image */
   charImg.src = "images/character-sad.png";
 });
 
-/* Yes button */
+/* YES BUTTON */
 
 yesBtn.addEventListener("click", () => {
 
@@ -56,7 +62,7 @@ yesBtn.addEventListener("click", () => {
   createConfetti();
 });
 
-/* Confetti */
+/* CONFETTI */
 
 function createConfetti(){
 
@@ -69,13 +75,11 @@ function createConfetti(){
     confetti.style.left = Math.random() * 100 + "vw";
 
     confetti.style.backgroundColor =
-      ["#ff9a9e","#fad0c4","#4ade80","#ef4444"]
+      ["#ff4d6d","#ff8fa3","#ffc2d1","#caffbf"]
       [Math.floor(Math.random()*4)];
 
     confetti.style.animationDuration =
       (Math.random() * 3 + 2) + "s";
-
-    confetti.style.opacity = Math.random();
 
     document.body.appendChild(confetti);
 
