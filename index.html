@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Will You Be My Valentine?</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Main Screen -->
+  <div class="container" id="mainScreen">
+
+    <h1>
+      Will you be my Valentine?
+      <span class="heart">💕</span>
+    </h1>
+
+    <div class="character">
+      <img
+        src="images/character-neutral.png"
+        alt="cute character"
+        id="charImg"
+      >
+    </div>
+
+    <div class="buttons">
+      <button id="yesBtn" class="yes">Yes 💖</button>
+      <button id="noBtn" class="no">No 💔</button>
+    </div>
+
+  </div>
+
+  <!-- Success Screen -->
+  <div class="container hidden" id="successScreen">
+
+    <h1>Knew you would say yes! 🎉</h1>
+
+    <div class="character">
+      <img
+        src="images/character-happy.png"
+        alt="happy character"
+      >
+    </div>
+
+    <p class="success-text">
+      You just made me the happiest person ❤️
+    </p>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
