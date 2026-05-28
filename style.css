@@ -48,8 +48,11 @@ h1{
   display:flex;
   justify-content:center;
   gap:20px;
-
+  
   flex-wrap:wrap;
+
+  position: relative;
+  height: 120px;
 }
 
 button{
